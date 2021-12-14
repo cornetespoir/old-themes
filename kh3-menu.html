@@ -1,0 +1,1314 @@
+<!--
+
+// [Theme]
+   
+    KH3 Menu theme
+ 
+by egg.design //
+ 
+    + basic html and css knowledge is required to customize this theme
+    + feel free to edit and custom the theme to your liking, 
+    but don't redistribute, use as a base, or claim as your own
+    + please do not move or remove the credit
+    + all icons custom were made by me for this theme, so please do not redistribute     elsewhere
+    
+Credits
+    + based off of kh3 ui
+    
+Version 1.01 - fixed bugs
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>{Title}</title>
+<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<meta name="image:sora" content="https://66.media.tumblr.com/8e73b6af7bd1ecf8ce6cbfb5816b2fca/tumblr_pmiqv1XnwD1u8yrhso3_400.png" />
+<meta name="image:donald" content="https://66.media.tumblr.com/3893db00ad78a0286956f513108d4f67/tumblr_pmiqv1XnwD1u8yrhso2_400.png" />
+<meta name="image:goofy" content="https://66.media.tumblr.com/b7b7e5c3d5a06d9948ba5b42072434a6/tumblr_pmiqv1XnwD1u8yrhso1_400.png" />
+
+<meta name="image:background" content="https://images.khinsider.com/2016%20Uploads/01/kh3_unreal.png" />
+<meta name="select:sora exp" content="0%" />
+<meta name="select:sora exp" content="10%" />
+<meta name="select:sora exp" content="20%" />
+<meta name="select:sora exp" content="30%" />
+<meta name="select:sora exp" content="40%" />
+<meta name="select:sora exp" content="50%" />
+<meta name="select:sora exp" content="60%" />
+<meta name="select:sora exp" content="70%" />
+<meta name="select:sora exp" content="80%" />
+<meta name="select:sora exp" content="90%" />
+<meta name="select:sora exp" content="100%" />
+
+<meta name="select:donald exp" content="0%" />
+<meta name="select:donald exp" content="10%" />
+<meta name="select:donald exp" content="20%" />
+<meta name="select:donald exp" content="30%" />
+<meta name="select:donald exp" content="40%" />
+<meta name="select:donald exp" content="50%" />
+<meta name="select:donald exp" content="60%" />
+<meta name="select:donald exp" content="70%" />
+<meta name="select:donald exp" content="80%" />
+<meta name="select:donald exp" content="90%" />
+<meta name="select:donald exp" content="100%" />
+
+<meta name="select:goofy exp" content="0%" />
+<meta name="select:goofy exp" content="10%" />
+<meta name="select:goofy exp" content="20%" />
+<meta name="select:goofy exp" content="30%" />
+<meta name="select:goofy exp" content="40%" />
+<meta name="select:goofy exp" content="50%" />
+<meta name="select:goofy exp" content="60%" />
+<meta name="select:goofy exp" content="70%" />
+<meta name="select:goofy exp" content="80%" />
+<meta name="select:goofy exp" content="90%" />
+<meta name="select:goofy exp" content="100%" />
+
+<meta name="text:Sora" content="Sora" />
+<meta name="text:Donald" content="Donald" />
+<meta name="text:Goofy" content="Goofy" />
+
+<meta name="text:sora level" content="30" />
+<meta name="text:donald level" content="29" />
+<meta name="text:goofy level" content="28" />
+
+<meta name="text:sora hp" content="200/200" />
+<meta name="text:sora mp" content="100/120" />
+
+<meta name="text:donald hp" content="180/190" />
+<meta name="text:donald mp" content="110/130" />
+
+<meta name="text:goofy hp" content="150/170" />
+<meta name="text:goofy mp" content="90/90" />
+
+<meta name="text:equipment" content="Equipment" />
+<meta name="text:equipment description" content="Change your equipment" />
+
+<meta name="text:abilities" content="Abilities" />
+<meta name="text:abilities description" content="Choose your active abilities" />
+<meta name="text:abilities link" content="/ask" />
+
+<meta name="text:cuisine" content="Cuisine" />
+<meta name="text:cuisine description" content="Consume food you've bought or cooked" />
+<meta name="text:cuisine link" content="/submit" />
+
+<meta name="text:items" content="Items" />
+<meta name="text:items description" content="Browse and use items in your possession" />
+<meta name="text:items link" content="/archive" />
+
+<meta name="text:customize" content="Customize" />
+<meta name="text:customize description" content="Customize your menus" />
+<meta name="text:customize link" content="/customize" />
+
+<meta name="text:help" content="Help" />
+<meta name="text:help description" content="You can customize these descriptions" />
+<meta name="text:help link" content="/" />
+
+<meta name="text:config" content="Config" />
+<meta name="text:config description" content="You can customize the titles too" />
+<meta name="text:config link" content="" />
+
+<link href="https://fonts.googleapis.com/css?family=Coda|Titillium+Web" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    	function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  document.getElementById('time').innerHTML = h + ":" + m;
+  t = setTimeout(function() {
+    startTime()
+  }, 500);
+}
+startTime();
+});
+</script>
+<style>
+
+
+
+body {
+    background:url({image:background}) center center fixed;
+    word-wrap:break-word;
+    line-height:180%;
+    overflow-x:hidden;
+    font-family:"Titillium Web";
+}
+
+a {
+    text-decoration:none;
+}
+
+body:before {
+    width:100%;
+    opacity:.912;
+    left:0;
+    top:0;
+      background:#161d2d;
+    height:100%;
+    content:'';
+    position:fixed;
+}
+
+main {
+    position:relative;
+    margin-left:38%;
+    width:calc(100% - 42%);
+}
+
+main:before {
+    content:'';
+    position:fixed;
+    z-index:0;
+    right:5%;
+    top:0px;
+    height:100vh;
+    border-right:1px solid rgba(255,255,255,.52);
+}
+
+
+aside {
+    position:fixed;
+    width:32%;
+    height:100vh;
+    left:6%;
+    border-left:1px solid rgba(255,255,255,.52);
+    top:0;
+}
+aside ul li {
+    list-style:none;
+    margin:20px 0;
+    height:50px;
+    color:white;
+    position:relative;
+
+    
+}
+
+aside ul {
+    margin:80px 0 0 0;
+    padding:0 20px;
+}
+
+aside a {
+    color:white;
+}
+
+.icon {
+    width:50px;
+    position:relative;
+    float:left;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.icon:before {
+    content:'';
+    position:absolute;
+    z-index:-1;
+   
+    width:100%;
+    
+    transform:rotate(45deg);
+    height:100%;
+}
+
+.line {
+    width:calc(100% - 50px);
+    height:3.2px;
+    transform:translateX(50px);
+    margin-top:0px;
+}
+
+aside li:hover .line, li:hover .icon:before {
+     background:#13c7fa;
+}
+
+aside li:hover .title {
+    font-size:1.24em;
+    transform:translateY(-4px) translateX(15px);
+}
+
+#key {
+    fill:white;
+    width:24px;
+}
+
+#ab {
+    transform:translateX(1px);
+    width:32px;
+    fill:white
+}
+
+#food{
+    fill:white;
+    width:28px;
+}
+
+#items {
+    fill:white;
+    width:22px;
+}
+
+#customize {
+      fill:white;
+    width:40px;
+      transform:translateX(4px) translateY(-4px);
+}
+#config, #help {
+      fill:white;
+    width:40px;
+      transform:translateX(4px) translateY(-4px);
+}
+.cursor {
+ position:absolute;
+ margin-top:-14px;
+ top:0px;
+ opacity:0;
+  transform:translateX(5px);
+ right:0;
+}
+.cursor svg {
+    fill:#13c7fa;
+    width:50px;
+}
+
+li:hover:before {
+    content:'';
+    width:11px;
+    border-radius:100%;
+    right:0px;
+    z-index:2;
+    box-shadow:0 0 20px orange, 0 0 4px orange, inset 0 0 2px orange,  inset 0 0 4px orange;
+    position:absolute;
+    height:11px;
+    transform-origin:4px 10px;
+    animation:floaty 14s infinite;
+    background:gold;
+}
+
+@keyframes floaty {
+    0% {
+        
+    }
+    
+    50% {
+     transform:rotate(2turn) translateX(-20px);  
+    }
+    55% {
+           transform:rotate(2turn) translateX(-20px); 
+    }
+    
+    100% {
+         80% {
+     transform:rotate(-2turn) translateX(20px);  
+    }
+    }
+}
+
+.title {
+    font-size:1.2em;
+    height:1.2em;
+    letter-spacing:1px;
+    transform:translateX(15px) translateY(.6em);
+    font-family:Coda;
+}
+
+.description {
+     transform:translateX(15px);
+     opacity:0;
+}
+
+li:hover .description, li:hover .cursor {
+    opacity:1;
+}
+
+article {
+    margin:100px auto;
+    width:90%;
+}
+.first {
+    width:90%;
+    margin:120px auto;
+    height:calc(88vh - 120px);
+    display:flex;
+    align-content:center;
+    flex-wrap:wrap;
+}
+
+
+
+.objective {
+    width:100%;
+}
+
+.object {
+    width:10em;
+    border-top-left-radius:10px;
+    padding:6px 12px;
+    font-size:.9em;
+      display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    background:linear-gradient(to right, black, transparent);
+   
+    color:yellow;
+}
+
+.object.desc {
+    border-radius:0px!important;
+    color:white;
+    width:50%;
+    font-size:1em;
+    line-height:200%;
+}
+
+.object.desc a, .object.desc span {
+    margin: 0 0px 0 10px;
+    color:white;
+    text-decoration:none;
+}
+
+.players {
+    width:100%;
+     display:flex;
+     height:100%;
+    flex-wrap:wrap;
+}
+
+.one, .two, .three, .four {
+    width:26%;
+  
+    background:linear-gradient(to top, rgba(0,0,0,.5), transparent);
+    position:relative;
+    height:90%;
+    margin-left:2px;
+      display:flex;
+      overflow:hidden;
+      align-items:center;
+      justify-content:center;
+    flex-wrap:wrap;
+
+}
+
+.players div:before {
+    width:4px;
+    height:100%;
+    content:'';
+    position:absolute;
+    left:0;
+  
+    background:linear-gradient(to top, rgba(255,255,255,.4), transparent, transparent);
+}
+
+.players img {
+    align-self:flex-end;
+    height:98%;
+}
+
+.overlay:before {
+    content:'';
+    
+}
+
+.overlay {
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    font-family:coda;
+    padding:6px 0;
+    border-top:2px solid rgba(255,255,255,.4);
+      border-bottom:1px solid rgba(255,255,255,.4);
+    background:rgba(0,0,0,.46);
+    
+}
+
+.overlay .name {
+    background:rgba(255,255,255,.28);
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    color:white;
+    letter-spacing:1px;
+    font-family:coda;
+}
+
+.overlay .health {
+    width:calc(90% - 40px);
+    margin:auto;
+    padding:10px 20px;
+    position:relative;
+    color:white;
+    font-size:.9em;
+}
+
+.exp {
+    position:relative;
+    margin:0 0 4px 0;
+}
+.exp:after {
+    content:'';
+    position:absolute;
+    height:4px;
+    bottom:0;
+    left:0;
+    transform:translateY(2px);
+    background:linear-gradient(to right, peachpuff 0%, peachpuff 30%,  rgba(255,255,255,.4) 30%);
+    width:100%;
+}
+
+.sora .exp:after {
+      background:linear-gradient(to right, peachpuff 0%, peachpuff {select:sora exp},  rgba(255,255,255,.4) {select:sora exp});
+}
+
+
+.donald .exp:after {
+      background:linear-gradient(to right, peachpuff 0%, peachpuff {select:donald exp},  rgba(255,255,255,.4) {select:donald exp});
+}
+.goofy .exp:after {
+      background:linear-gradient(to right, peachpuff 0%, peachpuff {select:goofy exp},  rgba(255,255,255,.4) {select:goofy exp});
+}
+
+.posts, ol.notes {
+    width:68%;
+    margin:100px 5% 100px 5%;
+}
+
+.posts .object.desc {
+    width:90%;
+}
+
+.posts img{
+    max-width:100%;
+    display:block;
+}
+
+.reblogs, .text, .quote, .link, ol.notes{
+    background:rgba(0,0,0,.2);
+    padding:20px;
+    color:white;
+}
+
+ol.notes img {
+    display:none;
+}
+
+ol.notes li {
+    position:relative;
+    margin:20px;
+}
+
+ol.notes a {
+    color:white;
+    text-decoration:none;
+}
+
+.reblog-header {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+/*  chat posts  */
+
+ .chat {
+    padding:5px;
+    line-height:150%;
+     }
+   
+.chat:nth-of-type(odd) {
+    background:{color:links};
+    color:{color:posts};
+    -webkit-transition:.5s;
+    transition:.5s; }
+    
+  .chat:nth-of-type(odd) b {
+    color:{color:posts};
+    -webkit-transition:.5s;
+    transition:.5s; }  
+   
+.chat:nth-of-type(even) {
+    background:{color:posts};
+    color:{color:links};
+    -webkit-transition:.5s;
+    transition:.5s; }
+ .chat:nth-of-type(even) b{
+    color:{color:links};
+    -webkit-transition:.5s;
+    transition:.5s; }
+
+
+/* Audio Posts */
+ 
+
+ 
+ 
+/* circle inside the album art to make it look like a CD */
+ 
+
+ 
+.posts #albumart img{
+width:calc(100% - 20%);
+padding:10%;
+border-width:0px; transition:.6s;
+   
+}
+
+.playerbox {
+    width:300px;
+    height:300px;
+        box-shadow:4px 4px 20px rgba(0,0,0,.07);
+      display:flex;
+      margin:0 0 40px 0;
+   flex-wrap:wrap;
+   align-items:center;
+   justify-content:center;
+}
+ 
+ .player {
+    width:32px;
+    overflow:hidden;
+    height:26px;
+    transform:scale(1.6);
+    z-index:9999999!important;
+
+   
+}
+ 
+ 
+.playercon {
+  height:60px;
+  width:60px;
+  background:linear-gradient(to top right, {color:links}, {color:accent2});
+  transform:translateY(-20px);
+  border-radius:100%;
+  overflow:hidden;
+    display:flex;
+   flex-wrap:wrap;
+   align-items:center;
+   justify-content:center;
+ 
+   
+    
+}
+
+main.grid .playerbox {
+width:250px;
+height:250px;
+}
+
+.infobox {
+    width:100%;
+    height:80px;
+    bottom:0px;
+    position:absolute;
+    overflow:hidden;
+    display:flex;
+    align-content:center;
+    flex-wrap:wrap;
+    align-items:center;
+    background:inherit;
+      background-size:100% auto!important;
+    text-align:left;
+    background-position:-6px;
+    z-index:99!important;
+    color:{color:text};
+}
+ .infobox:before{
+  content: '';
+ z-index:-2;
+ width: 150%;
+ height: 140px;
+ background: inherit; 
+ position: absolute;
+ left: -50px; 
+ right: 0;
+ top: -50px;  
+
+ box-shadow: inset 0 0 0 500px rgba(255,255,255,0.2);
+ filter: blur(10px);
+}
+ 
+ .artist, .album, .trackname {
+   width:80%;
+   margin:auto;
+ }
+ 
+
+ 
+ .audiopost .caption {
+     background:#f8f8f8;
+
+     margin:10% auto 0 auto;
+ }
+ 
+.audiop {
+   width:300px;
+   margin:auto;
+   margin-top:10%;
+   background-size:100% auto!important;
+   position:relative;
+   
+}
+
+article a  {
+    color:yellow;
+}
+
+.tags {
+    padding:20px;
+    line-height:270%;
+}
+
+.tags a {
+    position:relative;
+    color:white;
+    padding:6px 12px;
+    background:rgba(0,0,0,.2);
+    margin:10px;
+}
+
+.tags a span {
+    color:yellow;
+    font-size:.64em;
+    font-weight:bold;
+    margin:0 4px;
+}
+
+
+.user, .inactive {
+    margin-left:10px;
+    color:white;
+}
+
+.h1 {
+        position: fixed;
+    width: 200%;
+    height: 100%;
+    background:linear-gradient(to bottom, skyblue, transparent);
+    border-radius: 100%/100%;
+    left: 50%;
+    top: -88%;
+    margin-left: -100%;
+}
+
+.h2 {
+    position:fixed;
+    height:100%;
+    width:200%;
+    background:linear-gradient(to top, #64a0ed,transparent);
+    border-radius: 100%/100%;
+    left: 50%;
+    bottom: -80%;
+    margin-left: -100%;
+}
+
+nav {
+    width:6%;
+    position:fixed;
+    top:0px;
+    height:70vh;
+    left:0;
+    align-content:flex-start;
+    overflow:hidden;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end
+}
+
+nav .fa {
+    width:100%;
+    margin-top:90px;
+    color:white;
+    text-align:right;
+    font-size:1.4em;
+    padding:0 10px 0 0;
+}
+
+.menu {
+ writing-mode: vertical-rl;
+    margin-top:10px;
+    transform: translateX(-4px);
+    font-size:1.06em;
+
+    color:white;
+ 
+
+}
+
+.mickey {
+    position:absolute;
+    margin-left:-82%;
+    width:100%;
+    top:-20%;
+    height:200px;
+    background:cover;
+}
+
+.mickey img {
+    width:400%;
+    opacity:.2;
+    height:auto!important;
+}
+
+#pagination a, .permpag a {
+    color:white;
+}
+.permpag, #pagination {
+    width:90%;
+    font-size:1.12em;
+    margin:auto;
+}
+.permpag a {
+    margin:0 20px 0 0;
+}
+#pagination a, .jump_page, .current_page {    
+    margin: 0 4px;
+    display: inline-block;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+    color:white;
+    border-radius: 100%;
+    line-height: 42px;
+ 
+}
+
+.current_page {
+    color:yellow;
+}
+
+.eggs {
+    width:8%;
+    position:fixed;
+    bottom:4%;
+    right:6.2%;
+    z-index:9999999;
+    color:white;
+    font-family:Coda!important;
+} .timeof {
+    display:flex;
+    flex-wrap:wrap;
+    text-align:right;
+    align-items:center;
+}
+.clocky {
+    font-size:.86em;
+    width:80%;
+   
+    margin:0 8% 0 0;
+}
+
+.clocky b {
+    padding:3px 0;
+  
+    width:100%;
+    text-transform:uppercase;
+
+
+}
+.clocky b:before{
+    position:absolute;
+    content:'';
+    height:2px ;
+    width:100%;
+    left:-18%;
+    margin-top:26px;
+    background:linear-gradient(to right, transparent, rgba(255,255,255,.52));
+}
+.timeof span, .timeof .eggo{
+    font-size:1.2em;
+    width:10%;
+}
+
+.timeof {
+    margin-top:20px;
+}
+
+.eggs a {
+    color:white;
+}
+
+#time {
+    font-size:1.24em;
+    font-weight:bold;
+}
+
+.egg {
+      width: 14px; height: 18px; 
+ -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+border:2px solid #fff; 
+z-index:9999;
+
+}
+</style>
+</head>
+<body>
+
+<div class="eggs">
+    <div class="timeof">
+    <div class="clocky">
+    <b>Time</b>
+  <div id="time"></div>
+      </div>
+         <span class="far fa-clock"></span>
+  </div>
+  <a href="https://egg.design">
+   <div class="timeof">
+    <div class="clocky">
+    <b>Theme</b>
+  <div id="them">egg.design</div>
+      </div>
+      
+         <div class="eggo">
+             <div class="egg"></div>
+         </div>
+  </div>
+  </a>
+</div>
+<div class="h1">
+</div>
+<div class='h2'>
+    
+</div>
+
+<nav>
+<div class="mickey">
+    <img src="https://static.tumblr.com/svdghan/aD5poy9mi/mickey-01-01.png">
+</div>
+    <span class="fa fa-bars"></span>
+    <div class="menu">MENU</div>
+</nav>
+<aside>
+<ul>
+    <li>
+    <a href="/">
+    <div class="icon">
+        <svg id="key" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 60.91 74.62"><title>Untitled-2</title><polyline points="0 0 60.91 0 50.82 38.8 38.44 38.8 38.62 52.03 49.54 52.03 49.66 58.21 38.91 58.21 39.09 64.77 49.84 64.77 50.16 74.62 22.48 74.62 20.85 37.31 9.45 37.31"/></svg>
+        </div>
+        <div class="title">{text:equipment}</div>
+        <div class="line"></div>
+        <div class="description">{text:equipment description}</div>
+        
+          <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+          </a>
+    </li>
+    
+    
+     <li>
+     <a href="{text:abilities link}">
+    <div class="icon"><svg id="ab" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 87.43 86.05"><title>ab</title><path d="M96,48.6c-2.62-.39-4.81-.77-6.67-1.21A40.38,40.38,0,0,0,30.26,14.2q-.23-1.59-.45-3.39c-.18,1.41-.35,2.71-.53,3.92A40.7,40.7,0,0,0,12.69,32.26l-1.16.21,1,.17A40.39,40.39,0,0,0,43.87,90.09c.26,1.62.5,3.45.75,5.54.24-2,.48-3.79.73-5.38,1.2.11,2.42.18,3.65.18A40.48,40.48,0,0,0,89.43,50c0-.07,0-.15,0-.22C91.26,49.35,93.42,49,96,48.6ZM28.32,20c-1.58,6.84-4.09,9.37-10.47,11.09A36.7,36.7,0,0,1,28.32,20ZM49,86.43c-1,0-1.92-.05-2.87-.13,1.79-7.14,5-8.62,14.31-10.35-12.46-2.3-14-4.17-15.82-19.67C42.77,71.78,41.27,73.65,28.81,76c9.16,1.7,12.39,3.16,14.2,10A36.38,36.38,0,0,1,16.56,33.47C26.39,35.8,28,39.29,29.81,54.12,32,37.06,33.69,35,48.09,32.47,36.18,30.37,32.93,28.59,31,18.38A36.39,36.39,0,0,1,85.21,46c-4.84-2.22-6.08-6.21-7.49-15.73C75.58,44.72,73.84,46.45,59.44,48.6c14.4,2.14,16.14,3.87,18.28,18.28,1.43-9.64,2.69-13.61,7.68-15.82A36.47,36.47,0,0,1,49,86.43Z" transform="translate(-8.57 -9.57)"/></svg>
+        </div>
+        <div class="title">{text:abilities}</div>
+        <div class="line"></div>
+        <div class="description">{text:abilities description}</div>
+        <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+        </a>
+    </li>
+    
+
+    
+    <li>
+    <a href="{text:cuisine link}">
+    <div class="icon">
+        <svg id="food" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 70.6 62.83"><title>food</title><path d="M85,29,75.47,38.9a1.1,1.1,0,0,1-1.27.22.93.93,0,0,1-.34-1.47L84,25.37a1.48,1.48,0,0,0-.66-2.29,1.87,1.87,0,0,0-1.48.09L70.15,35.29a1.12,1.12,0,0,1-1.27.22h0A.94.94,0,0,1,68.54,34l9.64-11.4a1,1,0,0,0-1-1.57c-3.77.62-7,5.05-12.07,9.16C59.05,35.2,57.73,39.74,60,44l-9.39,9.38-9.17-9.18c2.31-5.22.9-13.11-4.73-17.77-7-5.82-14.09-7.39-18.21-2.53S16,36.83,21.8,44.05c3.95,4.89,9.54,6.56,13.9,5.28l9.51,9.5L26.32,77.72a2.55,2.55,0,0,0,0,3.61l1.8,1.81a2.56,2.56,0,0,0,3.62,0L50.62,64.25,69.51,83.14a2.55,2.55,0,0,0,3.61,0l1.81-1.81a2.55,2.55,0,0,0,0-3.61L56,58.83l9.16-9.15c4,2.71,7.87,1.87,13-4.36,4.64-5.65,8.83-11,8.62-15.72A1.07,1.07,0,0,0,85,29Z" transform="translate(-16.2 -21.05)"/></svg>
+    </div>
+    <div class="title">{text:Cuisine}</div>
+    <div class="line"></div>
+    <div class="description">{text:Cuisine description}</div>
+         <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+         </a>
+    </li>
+    
+    <li>
+    <a href="{text:items link}">
+    <div class="icon">
+        <svg id="items" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 59.02 79.43"><defs><style>.cls-1{fill:none;}</style></defs><title>potion</title><rect x="8.48" width="42.55" height="3"/><rect x="33.82" y="13.03" width="3" height="17.73" transform="translate(-22.28 -9.47) rotate(-3.3)"/><rect x="1.5" y="48" width="56.68" height="3"/><rect x="1.5" y="49.5" width="56.68" height="27.76"/><path class="cls-1" d="M37.33,35.34l-.06-3.1H26a1.92,1.92,0,0,0-1.91,1.91V86.06A1.92,1.92,0,0,0,26,88H75.19a1.92,1.92,0,0,0,1.91-1.91V34.15a1.92,1.92,0,0,0-1.91-1.91H63.08L63,35.34l.07-3.1H37.27Z" transform="translate(-21.07 -11.54)"/><path d="M75.19,29.24h-9L66,31.56l-2.9-.19,0,.87H75.19a1.92,1.92,0,0,1,1.91,1.91V86.06A1.92,1.92,0,0,1,75.19,88H26a1.92,1.92,0,0,1-1.91-1.91V34.15A1.92,1.92,0,0,1,26,32.24H37.27l-.06-3H26a4.91,4.91,0,0,0-4.91,4.91V86.06A4.91,4.91,0,0,0,26,91H75.19a4.91,4.91,0,0,0,4.91-4.91V34.15A4.91,4.91,0,0,0,75.19,29.24Z" transform="translate(-21.07 -11.54)"/><polygon points="42.07 17.7 42.07 17.7 42.07 17.7 42.07 17.7"/><polygon points="46.09 2.33 43.09 2.13 42.07 17.7 45.08 17.7 46.09 2.33"/><polygon points="42.02 19.83 44.93 20.02 45.08 17.7 42.07 17.7 42.07 17.7 42.02 19.83"/></svg>
+            
+    </div>
+    <div class="title">{text:items}</div>
+    <div class="line"></div>
+    <div class="description">{text:items description}</div>
+     <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+     </a>
+     </li>
+  
+      <li>
+      <a href="{text:customize link}">
+    <div class="icon">
+
+<svg id="customize" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<rect x="29.11" y="99" width="50" height="85.26"/>
+<ellipse cx="54.11" cy="62.77" rx="24.79" ry="24.77"/>
+<path d="M87,137"/>
+<g>
+	<path d="M180.04,127.07h-4.39c-6.93,0-10.4-8.52-5.5-13.51l3.38-3.44c1.15-1.17,1.15-3.08,0-4.25l-8.04-8.18
+		c-1.15-1.17-3.03-1.17-4.18,0l-3.38,3.44c-4.9,4.98-13.28,1.45-13.28-5.59v-4.52c0-1.66-1.32-3.01-2.96-3.01h-11.39
+		c-1.63,0-2.96,1.35-2.96,3.01v4.52c0,7.05-8.38,10.58-13.28,5.59l-3.01-3.07c-1.15-1.17-3.03-1.17-4.18,0l-8.04,8.18
+		c-1.15,1.17-1.15,3.08,0,4.25l3.01,3.07c4.9,4.98,1.43,13.51-5.5,13.51h-4.39c-1.63,0-2.96,1.35-2.96,3.01v11.59
+		c0,1.66,1.32,3.01,2.96,3.01h4.39c6.93,0,10.4,8.52,5.5,13.51l-3.38,3.44c-1.15,1.17-1.15,3.08,0,4.25l8.04,8.18
+		c1.15,1.17,3.03,1.17,4.18,0l3.38-3.44c4.9-4.98,13.28-1.45,13.28,5.59v4.52c0,1.66,1.32,3.01,2.96,3.01h11.39
+		c1.63,0,2.96-1.35,2.96-3.01v-4.52c0-7.05,8.38-10.58,13.28-5.59l3.01,3.07c1.15,1.17,3.03,1.17,4.18,0l8.04-8.18
+		c1.15-1.17,1.15-3.08,0-4.25l-3.01-3.07c-4.9-4.98-1.43-13.51,5.5-13.51h4.39c1.63,0,2.96-1.35,2.96-3.01v-11.59
+		C183,128.42,181.68,127.07,180.04,127.07z M136,153.84c-9.74,0-17.63-8.04-17.63-17.97s7.89-17.97,17.63-17.97
+		s17.63,8.04,17.63,17.97S145.74,153.84,136,153.84z"/>
+</g>
+</svg>
+
+
+
+    </div>
+    <div class="title">{text:customize}</div>
+    <div class="line"></div>
+    <div class="description">{text:customize description}</div>
+         <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+         </a>
+    </li>
+    
+     
+      <li>
+      <a href="{text:help link}">
+    <div class="icon">
+
+<svg version="1.1" id="help" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<g>
+	<path d="M160.7,40.65H46.3c-7.9,0-14.3,6.4-14.3,14.3v114.4c0,7.9,6.4,14.3,14.3,14.3h114.4c7.9,0,14.3-6.4,14.3-14.3V54.95
+		C175,47.05,168.6,40.65,160.7,40.65z M105.33,158.97c0,0.89-1.45,1.55-3.1,1.55h-7.04c-6,0-11.38-2.78-11.38-6v-6.77h21.52V158.97z
+		 M149.2,97.92c-1.86,5-6.21,8.88-13.04,11.88c-5.17,2.22-11.17,3.55-16.76,4.77c-10.55,2.33-13.45,3.44-13.45,8.21v11.99H83.18
+		v-11.99c0-5.88,3.31-10.55,9.73-13.88c5.17-3,12-4.33,18-5.66c9.31-2.11,14.28-3.33,15.94-7.88c2.48-6.66,1.24-12.1-4.35-15.65
+		c-3.52-2.22-7.86-3.33-13.45-3.33H70.15V64.17h38.91c6,0,11.8,0.67,17.18,1.89c5.59,1.44,10.14,3.44,14.07,5.99
+		C150.03,78.6,153.13,87.37,149.2,97.92z"/>
+</g>
+</svg>
+
+
+    </div>
+    <div class="title">{text:help}</div>
+    <div class="line"></div>
+    <div class="description">{text:help description}</div>
+         <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+         </a>
+    </li>
+    
+    
+      <li>
+      <a href="{text:config link}">
+    <div class="icon">
+
+<svg version="1.1" id="config" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<g>
+	<path d="M167.22,90.06h-7.11c-11.2,0-16.81-12.88-8.89-20.42l5.47-5.2c1.87-1.78,1.87-4.66,0-6.43l-13-12.37
+		c-1.87-1.78-4.89-1.78-6.76,0l-5.47,5.2c-7.92,7.54-21.47,2.2-21.47-8.46v-6.83c0-2.51-2.14-4.55-4.78-4.55H86.79
+		c-2.64,0-4.78,2.04-4.78,4.55v6.83c0,10.66-13.54,15.99-21.47,8.46l-4.87-4.64c-1.87-1.78-4.89-1.78-6.76,0l-13,12.37
+		c-1.87,1.78-1.87,4.66,0,6.43l4.87,4.64c7.92,7.54,2.31,20.42-8.89,20.42h-7.11c-2.64,0-4.78,2.04-4.78,4.55v17.52
+		c0,2.51,2.14,4.55,4.78,4.55h7.11c11.2,0,16.81,12.88,8.89,20.42l-5.47,5.2c-1.87,1.78-1.87,4.66,0,6.43l13,12.37
+		c1.87,1.78,4.89,1.78,6.76,0l5.47-5.2c7.92-7.54,21.47-2.2,21.47,8.46v6.83c0,2.51,2.14,4.55,4.78,4.55h18.42
+		c2.64,0,4.78-2.04,4.78-4.55v-6.83c0-10.66,13.54-15.99,21.47-8.46l4.87,4.64c1.87,1.78,4.89,1.78,6.76,0l13-12.37
+		c1.87-1.78,1.87-4.66,0-6.43l-4.87-4.64c-7.92-7.54-2.31-20.42,8.89-20.42h7.11c2.64,0,4.78-2.04,4.78-4.55V94.61
+		C172,92.1,169.86,90.06,167.22,90.06z M96,130.53c-15.74,0-28.51-12.16-28.51-27.16S80.26,76.21,96,76.21s28.51,12.16,28.51,27.16
+		S111.74,130.53,96,130.53z"/>
+</g>
+</svg>
+
+
+    </div>
+    <div class="title">{text:config}</div>
+    <div class="line"></div>
+    <div class="description">{text:config description}</div>
+         <div class="cursor"><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 74.38 49.19"><title>crown</title><path d="M49.3,12.36" transform="translate(-12.11 -31.09)"/><path d="M65.18,64.3a2.54,2.54,0,0,1,1,1.94c0,1.59-1.68,2.89-3.74,2.89s-3.75-1.3-3.75-2.89,1.52-2.74,3.44-2.86L49.3,31.09,38.89,62c1.54.36,3.54,1.88,3.54,3.18,0,1.6-1.68,2.89-3.75,2.89s-3.74-1.29-3.74-2.89A2.66,2.66,0,0,1,36.26,63L12.11,51.68l18.55,28.6H73.89l12.6-28.6Z" transform="translate(-12.11 -31.09)"/></svg></div>
+         </a>
+    </li>
+    
+    </ul>
+</aside>
+
+<main>
+   <article class="first">
+   <div class="objective">
+       <div class="object">Objective</div>
+       <div class="object desc">Explore the world</div>
+   </div>
+   <div class="players">
+       <div class="one">
+           <img src="{image:sora}">
+           <div class="overlay">
+               <div class="name">{text:Sora}</div>
+               <div class="health sora">
+                   <div class="exp">EXP <span style="float:right; font-size:1.12em">lv {text:sora level}</span></div>
+                   <span style="color:limegreen">HP</span>    <span style="color:limegreen; float:right; font-size:1.12em">{text:sora hp}</span><br>
+                     <span style="color:skyblue">MP</span>    <span style="color:skyblue; float:right; font-size:1.12em">{text:sora mp}</span>
+               </div>
+           </div>
+           
+       </div>
+       
+       <div class="two">
+           <img src="{image:donald}">
+           <div class="overlay">
+               <div class="name">{text:Donald}</div>
+               <div class="health donald">
+                        <div class="exp">EXP <span style="float:right; font-size:1.12em">lv {text:donald level}</span></div>
+                          <span style="color:limegreen">HP</span>    <span style="color:limegreen; float:right; font-size:1.12em">{text:donald hp}</span><br>
+                     <span style="color:skyblue">MP</span>    <span style="color:skyblue; float:right; font-size:1.12em">{text:donald mp}</span>
+               </div>
+           </div>
+           
+       </div>
+       
+       <div class="three">
+           <img src="{image:Goofy}">
+              <div class="overlay">
+               <div class="name">{text:Goofy}</div>
+               <div class="health goofy">
+                        <div class="exp">EXP <span style="float:right; font-size:1.12em">lv {text:goofy level}</span></div>
+                          <span style="color:limegreen">HP</span>    <span style="color:limegreen; float:right; font-size:1.12em">{text:goofy hp}</span><br>
+                     <span style="color:skyblue">MP</span>    <span style="color:skyblue; float:right; font-size:1.12em">{text:goofy mp}</span>
+               </div>
+           </div>
+       </div>
+       </div>
+   </article> 
+   {block:posts}
+   <article class="posts">
+   {block:date}
+          <div class="objective">
+       <div class="object">A {PostType} post</div>
+       <div class="object desc"> 
+       <a href="{permalink}"> {lang:Posted on Month DayOfMonth Year with NoteCount notes}</a></div>
+   </div>
+   {/block:date}
+   {block:Text}
+   
+<div class="text"> 
+{block:Title}
+   <h1>{Title}</h1>
+{/block:Title}
+{block:notreblog}
+<figcaption>
+        {Body}
+    </figcaption>
+{/block:NotReblog}
+ 
+{block:RebloggedFrom}
+<div class="reblog-list">
+    {block:Reblogs}
+        <div class="{block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+            <div class="reblog-header">
+ 
+                {block:IsActive}
+                <a class="{block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                <span class="inactive {block:isNotOriginalEntry} sub-reblog{/block:isNotOriginalEntry}">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </span>
+                {/block:IsDeactivated}
+ 
+                {block:IsActive}
+                   <a target="_blank" href="{Permalink}" class="user">{Username}</a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                    <span class="inactive deactivated">{Username}</span>
+                {/block:IsDeactivated}
+ 
+            </div>
+            <div class="reblog-content">
+                {Body}
+            </div>
+        </div>
+    {/block:Reblogs}
+</div>
+{/block:RebloggedFrom}
+               </div>
+               
+   {/block:text}
+   {block:Photo}
+   <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+   {/block:Photo}
+   
+   {block:Panorama}
+   {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+   {/block:Panorama}
+   
+   {block:Photoset}
+   {Photoset}
+   {/block:Photoset}
+{block:Answer}
+<div class="quote">
+{Question}
+<br>
+{Answer}
+</div>
+{/block:Answer}
+
+   {block:Link}
+   <div class="link">
+   <a href="{URL}" class="linkp">{Name}</a>
+   {block:Description}
+   {Description}
+   {/block:Description}
+   </div>
+   {/block:Link}
+   {block:Quote}
+   <div class="quote">
+       {Quote}
+       <p>
+       {Source}
+       </p>
+   </div>
+   {/block:Quote}
+   
+      {block:Chat}
+                 <div class="reblogs">{block:Title}<h2>{title}</h2>{/block:Title}{block:Lines}<div class="chat">{block:Label}<b>{Label}</b>{/block:Label} {Line}<br/></div>{/block:Lines}</div>{/block:Chat}
+   
+   {block:Video}
+<center>
+{Video-400}
+</center>
+{/block:Video}
+   {block:Audio}
+
+<div class="audiop" style="{block:AlbumArt}background:url({AlbumArtURL});{/block:AlbumArt}">
+<div class="playerbox">
+<div class="playercon"><div class="player">{AudioPlayerWhite}</div></div></div>
+<div class="infobox">
+   <div class="trackname"> {block:TrackName}
+Track: {TrackName}
+{/block:TrackName}  </div>
+ 
+<div class="artist">
+{block:Artist}
+
+Artist: {Artist}
+{/block:Artist} </div>
+ 
+    <div class="album">
+        {block:Album}
+ Album: {Album}
+{/block:Album}
+    </div>
+ 
+</div></div> 
+{/block:Audio} 
+   {block:caption}
+   
+<div class="caption"> 
+{block:Title}
+   <h1>{Title}</h1>
+{/block:Title}
+{block:notreblog}
+<div class="reblogs">
+        {Caption}
+    </div>
+{/block:NotReblog}
+ 
+{block:RebloggedFrom}
+<div class="reblog-list">
+    {block:Reblogs}
+        <div class="reblogs {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+            <div class="reblog-header">
+ 
+                {block:IsActive}
+                <a class="{block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                <span class="inactive {block:isNotOriginalEntry} sub-reblog{/block:isNotOriginalEntry}">
+                    <img src="{PortraitURL-64}" style="width:40px; float:left">
+                </span>
+                {/block:IsDeactivated}
+ 
+                {block:IsActive}
+                   <a target="_blank" href="{Permalink}" class="user">{Username}</a>
+                {/block:IsActive}
+ 
+                {block:IsDeactivated}
+                    <span class="inactive deactivated">{Username}</span>
+                {/block:IsDeactivated}
+ 
+            </div>
+            <div class="reblog-content">
+                {Body}
+            </div>
+        </div>
+    {/block:Reblogs}
+</div>
+{/block:RebloggedFrom}
+               </div>
+               
+   {/block:caption}
+   
+   {block:hastags}
+   <div class="tags">
+       {block:tags}<a href="{TagURL}"><span>✖</span> {Tag}</a>
+       {/block:tags}
+   </div>
+   {/block:hastags}
+   </article>
+   
+   <div class="permpag">
+         {block:PermalinkPagination} 
+    {block:PreviousPost}
+        <a href="{PreviousPost}">{lang:Previous Post}</a>
+    {/block:PreviousPost}
+     
+    {block:NextPost}
+        <a href="{NextPost}">{lang:Next Post}</a>
+    {/block:NextPost} 
+{/block:PermalinkPagination}
+   </div>
+
+   {PostNotes}
+   {/block:posts}
+   <div id="pagination">
+{block:Pagination}{block:PreviousPage}
+    <span> <a href="{PreviousPage}">{lang:Previous}</a></span> 
+    {/block:PreviousPage}{block:JumpPagination length="4"}{block:CurrentPage}
+    <span class="current_page">{PageNumber}</span>
+    {/block:CurrentPage}
+    {block:JumpPage}
+    <a class="jump_page" href="{URL}">{PageNumber}</a>
+    {/block:JumpPage}{/block:JumpPagination}
+    
+    {block:NextPage}
+    <span> <a href="{NextPage}">{lang:Next}</a></span> 
+    {/block:NextPage}{/block:Pagination}
+            
+  
+
+<p style="width:100%; text-align:center;">
+
+        </div>
+</main>
+</body>
+</html>
